@@ -1,5 +1,7 @@
 # groceries.py
 
+import operator
+
 #from pprint import pprint
 
 products = [
@@ -70,9 +72,13 @@ print("------------------")
 print("NUMBER OF PRODUCTS:", len(products))
 print("------------------")
 
+# SORT THE PRODUCTS
+
+sorted_products = sorted(products, key=operator.itemgetter("name"))
+
 # LOOP THROUGH THE PRODUCTS AND PRINT EACH ONE
 
-for x in products:
+for x in sorted_products:
     #print("-----")
     #print(type(x))
     #print(x)
@@ -82,3 +88,25 @@ for x in products:
     #print(" + Cut Russet Potatoes Steam N' Mash ($4.25)")
     price_usd = to_usd(x["price"]) # "($4.25)"
     print(f" + {x['name']} ({price_usd})")
+
+# PART 2 (DEPARTMENTS)
+#
+# --------------
+# THERE ARE 10 DEPARTMENTS:
+# --------------
+#  + Babies (1 product)
+#  + Beverages (5 products)
+#  + Dairy Eggs (1 product)
+#  + Dry Goods Pasta (1 product)
+#  + Frozen (4 products)
+#  + Household (1 product)
+#  + Meat Seafood (1 product)
+#  + Pantry (2 products)
+#  + Personal Care (2 products)
+#  + Snacks (2 products)
+
+
+departments = []
+print("------------------")
+print("NUMBER OF DEPARTMENTS:", len(departments))
+print("------------------")
