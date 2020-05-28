@@ -68,9 +68,9 @@ def to_usd(my_price):
 
 # COUNT THE PRODUCTS
 
-print("------------------")
-print("NUMBER OF PRODUCTS:", len(products))
-print("------------------")
+#print("------------------")
+#print("NUMBER OF PRODUCTS:", len(products))
+#print("------------------")
 
 # SORT THE PRODUCTS
 
@@ -78,16 +78,16 @@ sorted_products = sorted(products, key=operator.itemgetter("name"))
 
 # LOOP THROUGH THE PRODUCTS AND PRINT EACH ONE
 
-for x in sorted_products:
-    #print("-----")
-    #print(type(x))
-    #print(x)
-    #print("name")
-    #print(x["name"])
-    # + Cut Russet Potatoes Steam N' Mash ($4.25)
-    #print(" + Cut Russet Potatoes Steam N' Mash ($4.25)")
-    price_usd = to_usd(x["price"]) # "($4.25)"
-    print(f" + {x['name']} ({price_usd})")
+#for x in sorted_products:
+#    #print("-----")
+#    #print(type(x))
+#    #print(x)
+#    #print("name")
+#    #print(x["name"])
+#    # + Cut Russet Potatoes Steam N' Mash ($4.25)
+#    #print(" + Cut Russet Potatoes Steam N' Mash ($4.25)")
+#    price_usd = to_usd(x["price"]) # "($4.25)"
+#    print(f" + {x['name']} ({price_usd})")
 
 # PART 2 (DEPARTMENTS)
 #
@@ -105,8 +105,16 @@ for x in sorted_products:
 #  + Personal Care (2 products)
 #  + Snacks (2 products)
 
+# TODO: from sorted_products variable, get a list of unique departments
 
 departments = []
+
+for x in products:
+    departments.append(x["department"])
+
 print("------------------")
 print("NUMBER OF DEPARTMENTS:", len(departments))
 print("------------------")
+
+for dept_name in departments:
+    print(dept_name)
