@@ -27,6 +27,25 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+#{
+#    "id":1,
+#    "name": "Chocolate Sandwich Cookies",
+#    "department": "snacks",
+#    "aisle": "cookies cakes",
+#    "price": 3.50
+#}
+#example_department_name = "snacks"
+#
+#matching_products = [x for x in products if x["department"] == example_department_name]
+#
+#print(type(matching_products)) #> list
+#print(matching_products)
+
+
+
+
+
+
 #print(type(products)) #> list
 
 def to_usd(my_price):
@@ -68,9 +87,9 @@ def to_usd(my_price):
 
 # COUNT THE PRODUCTS
 
-#print("------------------")
-#print("NUMBER OF PRODUCTS:", len(products))
-#print("------------------")
+print("------------------")
+print("NUMBER OF PRODUCTS:", len(products))
+print("------------------")
 
 # SORT THE PRODUCTS
 
@@ -78,16 +97,16 @@ sorted_products = sorted(products, key=operator.itemgetter("name"))
 
 # LOOP THROUGH THE PRODUCTS AND PRINT EACH ONE
 
-#for x in sorted_products:
-#    #print("-----")
-#    #print(type(x))
-#    #print(x)
-#    #print("name")
-#    #print(x["name"])
-#    # + Cut Russet Potatoes Steam N' Mash ($4.25)
-#    #print(" + Cut Russet Potatoes Steam N' Mash ($4.25)")
-#    price_usd = to_usd(x["price"]) # "($4.25)"
-#    print(f" + {x['name']} ({price_usd})")
+for x in sorted_products:
+    #print("-----")
+    #print(type(x))
+    #print(x)
+    #print("name")
+    #print(x["name"])
+    # + Cut Russet Potatoes Steam N' Mash ($4.25)
+    #print(" + Cut Russet Potatoes Steam N' Mash ($4.25)")
+    price_usd = to_usd(x["price"]) # "($4.25)"
+    print(f" + {x['name']} ({price_usd})")
 
 # PART 2 (DEPARTMENTS)
 #
@@ -105,8 +124,6 @@ sorted_products = sorted(products, key=operator.itemgetter("name"))
 #  + Personal Care (2 products)
 #  + Snacks (2 products)
 
-# TODO: from sorted_products variable, get a list of unique departments
-
 departments = []
 
 for x in products:
@@ -120,4 +137,6 @@ print("------------------")
 departments = sorted(departments)
 
 for dept_name in departments:
-    print(dept_name.title())
+    matching_products = [x for x in products if x["department"] == dept_name]
+    matching_products_count = len(matching_products)
+    print(f"  + {dept_name.title()} -- {matching_products_count} product(s)")
