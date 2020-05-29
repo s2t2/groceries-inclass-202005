@@ -60,6 +60,9 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
+
+print(to_usd(1000000))
+
 # PART 1 (PRODUCTS)
 # --------------
 # THERE ARE 20 PRODUCTS:
